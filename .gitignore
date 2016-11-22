@@ -43,3 +43,6 @@ jspm_packages
 #Webpack teemp files
 *.hot-update.js
 *.hot-update.json
+
+#Temporary hide dist-folder
+ dist/
