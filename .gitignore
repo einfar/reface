@@ -35,3 +35,11 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+
+# Idea PHP Storm / WebStorm Files
+.idea/
+
+#Webpack teemp files
+*.hot-update.js
+*.hot-update.json
