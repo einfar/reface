@@ -12,25 +12,34 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
     // TODO Move index.html into 'clients' folder
-   /* new HtmlWebpackPlugin({
-          filename: 'index.html',
+    new HtmlWebpackPlugin({
           template: './clients/index.html'
         }
-    )*/
+    )
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      query: {
-        presets: ["es2015", "stage-5", "react"]
-      },
-      include: path.join(__dirname, '../clients')
-    }]
+    loaders: [
+        {
+          test: /\.js$/,
+          loader: 'babel',
+          query: {
+            presets: ["es2015", "react"]
+          },
+          include: /clients|components/
+        },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      }
+    ]
+  },
+
+  node: {
+    fs: "empty"
   }
 };

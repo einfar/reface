@@ -21,7 +21,6 @@ export default class ControlNumber extends Component {
     }
 
     onChange(event) {
-        debugger;
-        console.log(event.target.value);
+        this.props.notify(event.target.value);
     }
 }
